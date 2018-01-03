@@ -12,7 +12,7 @@
     <table class="form-group">
         <tr>
             <td><lable>Customer Name</lable></td>
-            <td>@Html.TextBoxFor(m=>m.UserName)</td>
+            <td>@Html.TextBoxFor(m=>m.UserName) @Html.ValidationMessageFor(x => x.UserName)</td>
         </tr>
         <tr>
             <td><lable>Password</lable></td>

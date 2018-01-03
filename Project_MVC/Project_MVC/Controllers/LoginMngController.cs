@@ -21,5 +21,7 @@ namespace Project_MVC.Controllers
         {
             return View("LoginHome_mng", mng);
         }
+        
+
     }
 }

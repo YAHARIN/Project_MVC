@@ -19,8 +19,24 @@ namespace Project_MVC.Controllers
         
         public ActionResult Login(User usr)
         {
-            return View("LoginHome", usr);
+            if (ModelState.IsValid)
+            {
+                return View("Enter_Cus", usr);
+            }
+            else
+            {
+                return View("LoginHome", usr);
+            }
+  
+            
         }
+
+        public ActionResult Enter_Cus(User usr)
+        {
+            return View(usr);
+
+        }
+
 
 
         public ActionResult Register()

@@ -199,6 +199,7 @@
     <Content Include="Views\Login\LoginHome.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\LoginMng\LoginHome_mng.cshtml" />
+    <Content Include="Views\Login\Enter_Cus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

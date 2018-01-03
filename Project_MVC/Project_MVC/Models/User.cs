@@ -10,6 +10,7 @@ namespace Project_MVC.Models
     {
         [Key]
         [Required]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Length must be betweeb 2 - 50 carecter")]
         public string UserName { get; set; }
 
         [Required]
