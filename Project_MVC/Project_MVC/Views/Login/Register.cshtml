@@ -1,0 +1,36 @@
+﻿@model Project_MVC.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<h2>Register New Customer</h2>
+
+@using (Html.BeginForm("AddUser", "Login", FormMethod.Post))
+{
+    <table class="form-group">
+        <tr>
+            <td><lable>Customer Name</lable></td>
+            <td>@Html.TextBoxFor(m => m.UserName)</td>
+        </tr>
+        <tr>
+            <td><lable>Password</lable></td>
+            <td>@Html.PasswordFor(m => m.Password)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-info" value="Add New Customer" />
+            </td>
+            <td>
+                <input type="reset" class="btn btn-info" value="Reset Form" />
+            </td>
+        </tr>
+    </table>
+
+}
+
+<p>
+
+    <div style="color:red">@ViewBag.message</div>
+</p>

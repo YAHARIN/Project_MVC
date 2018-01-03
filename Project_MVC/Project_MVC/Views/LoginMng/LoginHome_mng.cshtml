@@ -1,0 +1,33 @@
+﻿@model Project_MVC.Models.Manager
+
+@{
+    ViewBag.Title = "LoginHome_mng";
+}
+
+
+<h2>Login Manager</h2>
+
+@using (Html.BeginForm("Login_Manager", "LoginMng", FormMethod.Post))
+{
+    <table class="form-group">
+        <tr>
+            <td><lable>Manager Name</lable></td>
+            <td>@Html.TextBoxFor(m => m.ManagerName)</td>
+        </tr>
+        <tr>
+            <td><lable>Password</lable></td>
+            <td>@Html.PasswordFor(m => m.Password)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-info" value="Login Manager" />
+            </td>
+        </tr>
+    </table>
+
+}
+
+<p>
+
+    <div style="color:red">@ViewBag.message</div>
+</p>
