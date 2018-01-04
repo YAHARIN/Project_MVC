@@ -10,6 +10,9 @@ namespace Project_MVC.Models
     {
         [Key]
         [Required]
+        public int MngNum { get; set; }
+
+        [Required]
         public string ManagerName { get; set; }
 
         [Required]

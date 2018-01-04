@@ -1,4 +1,5 @@
-﻿using Project_MVC.Models;
+﻿using Project_MVC.DL;
+using Project_MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Project_MVC.Controllers
             }
             else
             {
+                ViewBag.message = "Please try Again";
                 return View("LoginHome", usr);
             }
   
@@ -37,16 +39,31 @@ namespace Project_MVC.Controllers
 
         }
 
-
-
-        public ActionResult Register()
-        {
-            User usr = new Models.User();
-            return View(usr);
-        }
         public ActionResult AddUser(User usr)
         {
-            return View("Register",usr);
+            if (ModelState.IsValid)
+            {
+                UserDal dal = new UserDal();
+                dal.Customers.Add(usr);
+                dal.SaveChanges();
+
+
+                return View("Enter_Cus", usr);
+            }
+            else
+            {
+                return View("Register", usr);
+            }
+      
         }
+
+        public ActionResult Register(User usr)
+        {
+                return View("Register", usr);
+  
+               
+            
+        }
+        
     }
 }

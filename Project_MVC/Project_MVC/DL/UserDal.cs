@@ -15,6 +15,7 @@ namespace Project_MVC.DL
             modelBuilder.Entity<User>().ToTable("Customers");
             modelBuilder.Entity<Manager>().ToTable("Managers");
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Customers { get; set; }
+        public DbSet<Manager> Managers { get; set; }
     }
 }
