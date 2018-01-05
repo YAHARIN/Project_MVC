@@ -1,20 +1,27 @@
 ﻿@model Project_MVC.ModelView.CustomerViewModel
+   
+
 @{
-    ViewBag.Title = "Enter_Cus";
+    ViewBag.Title = "Enter_mng";
 }
+
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 
+
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Enter_Cus - Welcome!</title>
+    <title>Enter_Mng</title>
 </head>
 <body>
-    <div> 
-       @*@Model.UserName*@
-        @Model.Customer.UserName
+    <div>
+        <p>See Current Customers:</p>
+        <div class="btn btn-default">@Html.ActionLink("View Current Customers", "View_Customers", "Login")</div>
+        
+
     </div>
 </body>
 </html>

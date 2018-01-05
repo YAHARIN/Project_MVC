@@ -1,4 +1,5 @@
-﻿@model Project_MVC.Models.User
+﻿@model Project_MVC.ModelView.CustomerViewModel
+@using Project_MVC.Models;
 
 @{
     ViewBag.Title = "LoginHome";
@@ -12,13 +13,14 @@
     <table class="form-group">
         <tr>
             <td><lable>Customer Name</lable></td>
-            <td>@Html.TextBoxFor(m=>m.UserName) @Html.ValidationMessageFor(x => x.UserName)</td>
+            <td>@Html.TextBoxFor(m=>m.Customer.UserName) @Html.ValidationMessageFor(x => x.Customer.UserName)</td>
         </tr>
         <tr>
             <td><lable>Password</lable></td>
-            <td>@Html.PasswordFor(m=>m.Password)</td>
+            <td>@Html.PasswordFor(m=>m.Customer.Password)</td>
         </tr>
         <tr>
+           
             <td>
                 <input type="submit" class="btn btn-info" value="Login" />
             </td>
@@ -28,6 +30,10 @@
 }
 
 <p>
-
+  
+    @foreach(User obj in Model.Customers)
+    {
+        @obj.UserName;
+    }
     <div style="color:red">@ViewBag.message</div>
 </p>

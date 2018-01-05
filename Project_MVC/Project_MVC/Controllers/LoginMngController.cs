@@ -1,4 +1,5 @@
 ﻿using Project_MVC.Models;
+using Project_MVC.ModelView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,16 @@ namespace Project_MVC.Controllers
 
         public ActionResult Login_Manager(Manager mng)
         {
-            return View("LoginHome_mng", mng);
+            if (ModelState.IsValid)
+            {
+                return View("Enter_Mng");
+            }
+            else
+            {
+                return View("LoginHome_mng", mng);
+            }
         }
+        
         
 
     }

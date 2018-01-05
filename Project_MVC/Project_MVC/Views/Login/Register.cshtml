@@ -1,4 +1,4 @@
-﻿@model Project_MVC.Models.User
+﻿@model Project_MVC.ModelView.CustomerViewModel
 
 @{
     ViewBag.Title = "Register";
@@ -12,11 +12,11 @@
     <table class="form-group">
         <tr>
             <td><lable>Customer Name</lable></td>
-            <td>@Html.TextBoxFor(m => m.UserName)</td>
+            <td>@Html.TextBoxFor(m => m.Customer.UserName)</td>
         </tr>
         <tr>
             <td><lable>Password</lable></td>
-            <td>@Html.PasswordFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Customer.Password)</td>
         </tr>
         <tr>
             <td>

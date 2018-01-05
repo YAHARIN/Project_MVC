@@ -1,0 +1,34 @@
+﻿@model Project_MVC.ModelView.CustomerViewModel
+@using Project_MVC.Models;
+@using Project_MVC.ModelView;
+
+@{
+    ViewBag.title = "View_Customers";
+   
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View_Customers</title>
+</head>
+<body>
+    <div> 
+        <span style="color:red">Current Customers:</span>
+        <br />
+        <table>
+            <tr>
+                <td>Customer Name</td>
+            </tr>
+            @foreach(User obj in Model.Customers)
+            {
+                <tr>
+                    <td>
+                        @obj.UserName
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
