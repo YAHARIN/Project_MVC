@@ -1,4 +1,6 @@
-﻿@model Project_MVC.ModelView.CustomerViewModel
+﻿
+@model Project_MVC.ModelView.ProductViewModle
+
 @{
     ViewBag.Title = "Enter_Cus";
 }
@@ -9,12 +11,41 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Enter_Cus - Welcome!</title>
+    <title style="color:darkslateblue| coral">Welcome!</title>
 </head>
 <body>
-    <div> 
-       @*@Model.UserName*@
-        @Model.Customer.UserName
+    <div>
+        <p>See Current Products:</p>
+        <div id="status"></div>
+       
+        <table id="proTable">
+
+            <tr>
+                <td> ProNum  </td>
+                <td> ProductName  </td>
+                <td> SerialNum  </td>
+            </tr>
+
+        </table>
+
+        <script language="javascript">
+            $("#status").text("Loading...");
+            $.get("View_Products", null, BindData);
+            function BindData(Products) {
+                var tbl = $("#proTable");
+                for (k = 0; k < Products.length; k++) {
+                    var newRow = "<tr>" + 
+                        "<td>" + Products[k].ProNum + "</td>" +
+                        "<td>" + Products[k].ProductName + "</td>" +
+                        "<td>" + Products[k].SerialNum + "</td>" +
+                        "</tr>"
+                    tbl.append(newRow);
+                }
+                $("#status").text(" ");
+            }
+           
+        </script>
+        @*<div class="btn btn-default">@Html.ActionLink("View Products", "View_Products", "Login")</div>*@
     </div>
 </body>
 </html>

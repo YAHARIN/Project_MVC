@@ -4,6 +4,7 @@ using Project_MVC.ModelView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,16 +18,11 @@ namespace Project_MVC.Controllers
         {
             UserDal dal = new UserDal();
             List<User> objCustomers = dal.Customers.ToList<User>();
-
-
+           
             CustomerViewModel cvm = new CustomerViewModel();
             cvm.Customer = new User();
             cvm.Customers = objCustomers;
-            //cvm1.Customer = new User();
-            //cvm1.Customers = objCustomers;
-            //TempData["cvm"] = cvm;
-            //return RedirectToAction("View_Customers", "LoginMng");
-            //View_Customers(cvm);
+           
             return View(cvm);
         }
 
@@ -41,13 +37,28 @@ namespace Project_MVC.Controllers
             return View(cvm);
         }
 
+        public ActionResult View_Products()
+        {
+            //jason - view products
+            UserDal dal = new UserDal();
+            Thread.Sleep(7000);
+            List<Product> objProducts = dal.Products.ToList<Product>();
+
+            /*
+            ProductViewModle pro = new ProductViewModle();
+            pro.product = new Product();
+            pro.Products = objProducts;
+            */
+            return Json(objProducts, JsonRequestBehavior.AllowGet);
+        }
+
 
         public ActionResult Login(CustomerViewModel cvm)
         {
           
             if (ModelState.IsValid)
             {           
-                return View("Enter_Cus", cvm);
+                return View("Enter_Cus");
             }
             else
             {
@@ -58,10 +69,9 @@ namespace Project_MVC.Controllers
             
         }
 
-        public ActionResult Enter_Cus(CustomerViewModel cvm)
+        public ActionResult Enter_Cus()
         {
-            return View("Enter_Cus", cvm.Customer);
-
+            return View();
         }
 
         public ActionResult AddUser(CustomerViewModel cvm)
