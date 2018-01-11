@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Project_MVC.Controllers
 {
@@ -14,26 +15,38 @@ namespace Project_MVC.Controllers
         // GET: LoginMng
         public ActionResult LoginHome_mng()
         {
-            Manager mng = new Manager();
-            ViewBag.message = "";
-            return View(mng);
+            UserDal dal = new UserDal();
+            List<Manager> objManagers= dal.Managers.ToList<Manager>();
+
+            ManagerViewModel cvm = new ManagerViewModel();
+            cvm.Manager = new Manager();
+            cvm.Managers = objManagers;
+            return View(cvm);
         }
 
-        public ActionResult Login_Manager(Manager mng)
+        public ActionResult Login_Manager(ManagerViewModel mng)
         {
             UserDal dal = new UserDal();
             List<Manager> objManagers = dal.Managers.ToList<Manager>();
+
             if (ModelState.IsValid)
             {
-                for(int i =0;i<10; i++)
+                for (int i = 0; i < objManagers.Capacity; i++)
                 {
-
+                   if(objManagers[i].ManagerName.Equals(mng.Manager.ManagerName))
+                    {
+                        return View("Enter_Mng");
+                    }
+               
                 }
-                return View("Enter_Mng");
+                //ScriptManager.RegisterStartupScript(this.GetType(), typeof(string), "Alert", "alert('Message here');", true);
+                
+                return View("LoginHome_mng");
+
             }
             else
             {
-                return View("LoginHome_mng", mng);
+                return View("LoginHome_mng");
             }
         }
         

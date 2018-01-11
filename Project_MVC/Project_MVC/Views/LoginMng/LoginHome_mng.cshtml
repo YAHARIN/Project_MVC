@@ -1,5 +1,6 @@
-﻿@model Project_MVC.Models.Manager
-
+﻿@model Project_MVC.ModelView.ManagerViewModel
+@using Project_MVC.Models;
+@using Project_MVC.ModelView;
 @{
     ViewBag.Title = "LoginHome_mng";
 }
@@ -11,18 +12,35 @@
 {
     <table class="form-group">
         <tr>
-            <td><lable>Manager Name</lable></td>
-            <td>@Html.TextBoxFor(m => m.ManagerName)</td>
+            <td><lable>Manager Name </lable></td>
+            <td>@Html.TextBoxFor(m => m.Manager.ManagerName)</td>
         </tr>
         <tr>
             <td><lable>Password</lable></td>
-            <td>@Html.PasswordFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Manager.Password)</td>
         </tr>
         <tr>
             <td>
                 <input type="submit" class="btn btn-info" value="Login Manager" />
             </td>
         </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Manager Name</th>
+            </tr>
+        </thead>
+        @foreach(Manager obj in Model.Managers)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        @obj.ManagerName
+                    </td>
+                </tr>
+            </tbody>
+        }
     </table>
 
 }

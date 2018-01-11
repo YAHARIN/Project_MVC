@@ -55,10 +55,21 @@ namespace Project_MVC.Controllers
 
         public ActionResult Login(CustomerViewModel cvm)
         {
-          
+            UserDal dal = new UserDal();
+            List<User> objCustomers = dal.Customers.ToList<User>();
+
             if (ModelState.IsValid)
-            {           
-                return View("Enter_Cus");
+            {
+                for (int i = 0; i < objCustomers.Count; i++)
+                {
+                    if (objCustomers[i].UserName.Equals(cvm.Customer.UserName))
+                    {
+                        return View("Enter_Cus");
+                    }
+
+                }
+                return View("LoginHome");
+
             }
             else
             {
@@ -83,7 +94,7 @@ namespace Project_MVC.Controllers
                 dal.SaveChanges();
 
 
-                return View("Enter_Cus", cvm);
+                return View("Enter_Cus");
             }
             else
             {
