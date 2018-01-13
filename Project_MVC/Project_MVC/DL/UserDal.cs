@@ -16,9 +16,11 @@ namespace Project_MVC.DL
             modelBuilder.Entity<User>().ToTable("Customers");
             modelBuilder.Entity<Manager>().ToTable("Managers");
             modelBuilder.Entity<Product>().ToTable("Products");
+            modelBuilder.Entity<Purchase>().ToTable("Purchase");
         }
         public DbSet<User> Customers { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Purchase> Purchase { get; set; }
     }
 }

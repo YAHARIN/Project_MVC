@@ -50,7 +50,10 @@ namespace Project_MVC.Controllers
             }
         }
         
-        
+        public ActionResult Enter_Mng()
+        {
+            return View();
+        }
 
     }
 }

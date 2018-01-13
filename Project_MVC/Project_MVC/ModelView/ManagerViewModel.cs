@@ -11,6 +11,10 @@ namespace Project_MVC.ModelView
      public Manager Manager { get; set; }
 
      public List<Manager> Managers { get; set; }
-        
+
+     public Purchase Purchase { get; set; }
+
+     public List<Purchase> Purchases { get; set; }
+
     }
 }

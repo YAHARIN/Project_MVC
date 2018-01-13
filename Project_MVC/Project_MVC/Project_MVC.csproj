@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Purchas.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ModelView\CustomerViewModel.cs" />
     <Compile Include="ModelView\ManagerViewModel.cs" />
@@ -216,6 +217,7 @@
     <Content Include="Views\Login\Enter_Cus.cshtml" />
     <Content Include="Views\LoginMng\Enter_Mng.cshtml" />
     <Content Include="Views\Login\View_Customers.cshtml" />
+    <Content Include="Views\Login\Purches_Aprroval.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

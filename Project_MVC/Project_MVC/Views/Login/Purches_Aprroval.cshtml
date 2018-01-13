@@ -1,0 +1,76 @@
+﻿@model Project_MVC.ModelView.ManagerViewModel
+@using Project_MVC.Models;
+@using Project_MVC.ModelView;
+
+
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<style type="text/css">
+    .webgrid-table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: solid 1px #cc349f;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #e524b8;
+            padding: 3px 7px 2px;
+        }
+
+    .webgrid-header {
+        background-color: #ffd800;
+        color: #98BF21;
+        padding-bottom: 4px;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: white;
+        padding: 3px 7px 2px;
+    }
+</style>
+
+
+
+
+@{ 
+    WebGrid obj = new WebGrid(Model.Purchases);
+}
+
+
+
+<div id="gridContent" style=" padding:20px; ">
+    @obj.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        mode: WebGridPagerModes.All,
+        columns:
+            obj.Columns(
+            obj.Column("PurNum", "PurNum",@<text>@item.PurNum</text>),
+            obj.Column("UserName", "UserName",@<text>@item.UserName</text>),
+            obj.Column("ProductName", "ProductName",@<text>@item.ProductName</text>)          
+           ))
+</div>
+
+<div class="btn btn-default">@Html.ActionLink("Back", "Enter_Mng", "LoginMng")</div>
